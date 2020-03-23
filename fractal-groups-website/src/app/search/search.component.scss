@@ -1,0 +1,23 @@
+button {
+    right: 55px;
+    top: 20px;
+    position: fixed;
+
+    .mat-icon {
+        font-size: 50px;
+        border: 2px
+    }   
+}
+
+mat-form-field {
+    font-size: 20px;
+    width: 100%;
+}
+
+form {
+    border: 2px
+}
+
+.mat-form-field-wrapper {
+    width: 100%;
+}

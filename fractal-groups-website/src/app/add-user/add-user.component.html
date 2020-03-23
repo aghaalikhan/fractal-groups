@@ -1,0 +1,38 @@
+<div class="is-flex" *ngIf="userForm">
+  <form [formGroup]="userForm" class="column is-6 is-offset-one-quarter" (ngSubmit)="onSubmit()">
+    <div class="is-flex field-container">      
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput class="is-flex" formControlName="firstName" #abc>    
+        <mat-error>Please enter a first name</mat-error>       
+      </mat-form-field>   
+    </div>
+    <div class="is-flex field-container">      
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput class="is-flex" formControlName="lastName">     
+        <mat-error>Please enter a last name</mat-error>        
+      </mat-form-field>
+    </div>
+    <div class="is-flex field-container">
+      <mat-form-field>
+        <mat-label>Group</mat-label>
+        <mat-select formControlName="groupId">
+          <mat-option *ngFor="let group of groups$ | async" [value]="group.groupId">
+            {{group.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error>Please select a group</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        <button mat-button mat-stroked-button [routerLink]="['/']"> Back to Home </button>
+      </div> 
+      <div class="level-right">
+        <button mat-button mat-stroked-button [routerLink]="['/user/add']" type="submit" [disabled]="!userForm.valid"> Add Person </button>
+      </div>   
+    </div> 
+  </form>
+</div>  
+

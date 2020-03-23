@@ -1,0 +1,33 @@
+<mat-card *ngFor="let person of persons$ | async">  
+  <div class="column is-4 is-offset-one-third">
+    <div class="level is-mobile">
+      <div class="is-flex is-inline field-caption">
+        First Name:
+      </div>
+      <div class="is-flex is-inline">
+        {{ person.firstName | titlecase }}
+      </div>
+    </div>  
+    <div class="level is-mobile">
+      <div class="is-flex is-inline field-caption">
+        Last Name:
+      </div>
+      <div class="is-flex is-inline">
+        {{ person.lastName | titlecase   }}
+      </div>
+    </div>
+    <div class="level is-mobile">
+      <div class="is-flex is-inline field-caption">
+        Group Name:
+      </div>
+      <div class="is-flex is-inline">
+        {{ getGroupName(person.groupId) | titlecase }}
+      </div>
+    </div>
+  </div>  
+</mat-card>
+<div class="level-item">
+  <button mat-button mat-stroked-button [routerLink]="['/user/add']"> Back to home </button>
+</div>
+
+<app-loader *ngIf="!isLoaded" [diameter]="100"></app-loader>

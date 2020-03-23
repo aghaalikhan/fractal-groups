@@ -1,0 +1,12 @@
+<div class="column">
+  <mat-form-field>
+    <input matInput class="is-flex" [formControl]="searchControl">
+    <button mat-icon-button (click)="onSubmit()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-error *ngIf="searchControl.errors?.required && searchControl.touched">Please enter a valid search term</mat-error>
+    <mat-error *ngIf="searchControl.errors?.minlength && searchControl.touched">Please enter more than {{minQueryLength}} of charcters</mat-error>
+  </mat-form-field>  
+</div>
+  
+
