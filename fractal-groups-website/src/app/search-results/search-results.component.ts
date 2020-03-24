@@ -13,14 +13,17 @@ import { GroupService } from '../services/group.service';
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
   
-  private searchQuery$: Observable<string>;
+  
   public persons$: Observable<Person[]>;
+  private searchQuery$: Observable<string>;  
   private groups: Group[];  
   private peronsLoaded = false;
   private groupsLoaded = false;
-  private destroy$ = new Subject<void>();
-  
+  private destroy$ = new Subject<void>();  
+
   public get isLoaded() {
+    console.log(this.groupsLoaded);
+    console.log(this.peronsLoaded);
     return this.peronsLoaded && this.groupsLoaded;
   }
 
@@ -46,7 +49,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.persons$ = this.searchQuery$.pipe(        
       switchMap(query => this.searchService.Search(query)
         .pipe(
-          tap(() => this.peronsLoaded = true)
+          tap(() => {
+            this.peronsLoaded = true;                     
+          })
         )
       ));
 

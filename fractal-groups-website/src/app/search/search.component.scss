@@ -1,7 +1,7 @@
-button {
-    right: 55px;
-    top: 20px;
-    position: fixed;
+button {    
+    position: absolute;
+    right: 0px;
+    top: -5px;
 
     .mat-icon {
         font-size: 50px;
@@ -11,7 +11,7 @@ button {
 
 mat-form-field {
     font-size: 20px;
-    width: 100%;
+    width: 100%;  
 }
 
 form {
@@ -20,4 +20,12 @@ form {
 
 .mat-form-field-wrapper {
     width: 100%;
+    border: 0px;
+    padding: 0px!important;
+}
+
+input {
+    border-radius: 5px;    
+    border-width: 10px;
+    border-color: lightskyblue;
 }

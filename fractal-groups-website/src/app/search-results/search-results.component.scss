@@ -1,10 +1,16 @@
 mat-card {
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #dedede;
+    background: #f5f5f5;
 }
 
 
 .field-caption {
-    font-weight: 500;
+    font-weight: 500;   
+}
+
+.no-results-container {
+    margin-top: 200px;
+    text-align: center;
+    width: 100%;
 }

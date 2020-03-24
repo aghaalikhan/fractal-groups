@@ -1,0 +1,25 @@
+.page-header {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    background: #f5f5f5;
+}
+
+.company-logo-container {
+    min-width: 250px;   
+    display: inline-flex;
+    padding-top: 15px;
+    .app-icon {
+        height: 50px;
+        width: 50px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+.search-container {      
+    margin-left: 30px;  
+    display: inline-flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-right: 20px
+}

@@ -1,33 +1,52 @@
-<mat-card *ngFor="let person of persons$ | async">  
-  <div class="column is-4 is-offset-one-third">
-    <div class="level is-mobile">
-      <div class="is-flex is-inline field-caption">
-        First Name:
+<ng-container *ngIf="(persons$ | async)?.length > 0; else noResultsTempl">
+  <mat-card *ngFor="let person of persons$ | async">  
+    <div class="column is-4 is-offset-one-third">
+      <div class="level is-mobile">
+        <div class="is-flex is-inline field-caption">
+          First Name:
+        </div>
+        <div class="is-flex is-inline">
+          {{ person.firstName | titlecase }}
+        </div>
+      </div>  
+      <div class="level is-mobile">
+        <div class="is-flex is-inline field-caption">
+          Last Name:
+        </div>
+        <div class="is-flex is-inline">
+          {{ person.lastName | titlecase   }}
+        </div>
       </div>
-      <div class="is-flex is-inline">
-        {{ person.firstName | titlecase }}
+      <div class="level is-mobile">
+        <div class="is-flex is-inline field-caption">
+          Group Name:
+        </div>
+        <div class="is-flex is-inline">
+          {{ getGroupName(person.groupId) | titlecase }}
+        </div>
+      </div>
+      <div class="level is-mobile">
+        <div class="is-flex is-inline field-caption">
+          Created Date:
+        </div>
+        <div class="is-flex is-inline">
+          {{ person.createdDate | date: 'dd-MMM-yyyy' }}
+        </div>
       </div>
     </div>  
-    <div class="level is-mobile">
-      <div class="is-flex is-inline field-caption">
-        Last Name:
-      </div>
-      <div class="is-flex is-inline">
-        {{ person.lastName | titlecase   }}
-      </div>
+  </mat-card>
+  <div class="level-item">
+    <button mat-button mat-stroked-button [routerLink]="['/user/add']"> Back to home </button>
+  </div>
+</ng-container>
+<ng-template #noResultsTempl>
+  <div class="level">
+    <div class="no-results-container">
+      <h1>
+        There are no users matching query, try searching with a different search term
+      </h1>
     </div>
-    <div class="level is-mobile">
-      <div class="is-flex is-inline field-caption">
-        Group Name:
-      </div>
-      <div class="is-flex is-inline">
-        {{ getGroupName(person.groupId) | titlecase }}
-      </div>
-    </div>
-  </div>  
-</mat-card>
-<div class="level-item">
-  <button mat-button mat-stroked-button [routerLink]="['/user/add']"> Back to home </button>
-</div>
+  </div>
+</ng-template>
 
 <app-loader *ngIf="!isLoaded" [diameter]="100"></app-loader>
