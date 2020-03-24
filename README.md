@@ -16,6 +16,7 @@ pre-requisites:
 How to run api:
 - Restore database back up using "dbbackup"
 - Load the FractalGroupsApi.sln which can be found in FractalGroupsApi folder in Visual studio
+- Change the connection string in appsettings.json (It has machine name in it just change it to current machine host name)
 - F5 to run in Debug 
 
 Notes: 
