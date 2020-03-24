@@ -36,6 +36,6 @@ How to serve website:
 
 Notes: 
 - by default the API is running on port 44319 and the environment.ts file is pointed to https://localhost:44319/,
-if the api part has been changed, then this will need to match the new port.
+if the api port has been changed modified, then environmen.ts will need to be updated to point to the updated port.
 
 
